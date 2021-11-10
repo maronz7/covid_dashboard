@@ -97,7 +97,7 @@ export const fetchAsyncGetCountry = createAsyncThunk(
   async (country: string) => {
     let dyanamicUrl = apiUrl;
     if (country) {
-      dyanamicUrl = `${apiUrl}/courtries/${country}`;
+      dyanamicUrl = `${apiUrl}/countries/${country}`;
     }
     const { data } = await axios.get<APIDATA>(dyanamicUrl);
     return { data: data, country: country };
@@ -118,7 +118,7 @@ export const covidSlice = createSlice({
     builder.addCase(fetchAsyncGetDaily.fulfilled, (state, action) => {
       return {
         ...state,
-        dailyDatadata: action.payload,
+        dailyData: action.payload,
       };
     });
     builder.addCase(fetchAsyncGetCountry.fulfilled, (state, action) => {
